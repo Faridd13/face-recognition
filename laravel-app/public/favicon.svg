@@ -1,0 +1,25 @@
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fb923c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#orangeGradient)"/>
+  <!-- Tech grid -->
+  <rect x="8" y="8" width="20" height="20" rx="6" stroke="white" stroke-width="2" fill="none"/>
+  <rect x="36" y="8" width="20" height="20" rx="6" stroke="white" stroke-width="2" fill="none"/>
+  <rect x="8" y="36" width="20" height="20" rx="6" stroke="white" stroke-width="2" fill="none"/>
+  <rect x="36" y="36" width="20" height="20" rx="6" stroke="white" stroke-width="2" fill="none"/>
+  <!-- Face outline -->
+  <circle cx="32" cy="32" r="14" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.2)"/>
+  <!-- Eyes -->
+  <circle cx="27" cy="29" r="2" fill="white"/>
+  <circle cx="37" cy="29" r="2" fill="white"/>
+  <!-- Smile -->
+  <path d="M25 38C28 42 36 42 39 38" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <!-- Scan lines -->
+  <line x1="18" y1="20" x2="46" y2="20" stroke="white" stroke-width="1.5" opacity="0.7"/>
+  <line x1="18" y1="44" x2="46" y2="44" stroke="white" stroke-width="1.5" opacity="0.7"/>
+</svg>
