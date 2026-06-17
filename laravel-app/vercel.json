@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "functions": {
+    "index.php": {
+      "runtime": "vercel-php@0.7.3"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.php"
+    }
+  ],
+  "outputDirectory": "public",
+  "env": {
+    "APP_NAME": "Face Attendance",
+    "APP_ENV": "production",
+    "APP_DEBUG": "false",
+    "APP_KEY": "base64:Uun/cSs3By52inpI1RU9xNc/KGLYHxb/g79FlepL8Ok="
+  }
+}

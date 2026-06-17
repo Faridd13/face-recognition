@@ -24,7 +24,7 @@
 
     <div class="bg-white rounded-xl card-shadow overflow-hidden animate-slideInUp" style="animation-delay: 0.1s;">
         <div class="responsive-table-container max-h-[240px] sm:max-h-[320px] overflow-y-auto">
-            <table class="w-full min-w-[600px]">
+            <table class="w-full min-w-[500px]">
                 <thead class="bg-orange-50">
                     <tr>
                         <th class="px-2 sm:px-4 py-2 sm:py-4 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider">
@@ -34,9 +34,7 @@
                         <th class="px-2 sm:px-4 py-2 sm:py-4 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider hidden sm:table-cell">Tanggal</th>
                         <th class="px-2 sm:px-4 py-2 sm:py-4 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider">Waktu</th>
                         <th class="px-2 sm:px-4 py-2 sm:py-4 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider">Status</th>
-                        <th class="px-2 sm:px-4 py-2 sm:py-4 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider hidden md:table-cell">Confidence</th>
-                        <th class="px-2 sm:px-4 py-2 sm:py-4 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider hidden lg:table-cell">Latency</th>
-                        <th class="px-2 sm:px-4 py-2 sm:py-4 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider hidden xl:table-cell">Lokasi</th>
+                        <th class="px-2 sm:px-4 py-2 sm:py-4 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider hidden lg:table-cell">Lokasi</th>
                         <th class="px-2 sm:px-4 py-2 sm:py-4 text-center text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider">Aksi</th>
                     </tr>
                 </thead>
@@ -63,13 +61,7 @@
                                     {{ $attendance->status }}
                                 </span>
                             </td>
-                            <td class="px-2 sm:px-4 py-2 sm:py-4 whitespace-nowrap hidden md:table-cell">
-                                <div class="text-xs sm:text-sm text-gray-900">{{ $attendance->confidence ? $attendance->confidence . '%' : '-' }}</div>
-                            </td>
                             <td class="px-2 sm:px-4 py-2 sm:py-4 whitespace-nowrap hidden lg:table-cell">
-                                <div class="text-xs sm:text-sm text-gray-900">{{ $attendance->latency ? $attendance->latency . 'ms' : '-' }}</div>
-                            </td>
-                            <td class="px-2 sm:px-4 py-2 sm:py-4 whitespace-nowrap hidden xl:table-cell">
                                 <div class="text-xs sm:text-sm text-gray-900 truncate max-w-[150px]">{{ $attendance->location ?? '-' }}</div>
                             </td>
                             <td class="px-2 sm:px-4 py-2 sm:py-4">

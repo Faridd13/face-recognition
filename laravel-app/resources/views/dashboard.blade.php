@@ -81,13 +81,14 @@
             <div class="text-xs sm:text-sm text-gray-500">Memperlihatkan 10 data terbaru</div>
         </div>
         <div class="responsive-table-container max-h-[240px] sm:max-h-[320px] overflow-y-auto rounded-lg border border-gray-100">
-            <table class="w-full min-w-[400px]">
+            <table class="w-full min-w-[500px]">
                 <thead class="bg-orange-50 sticky top-0">
                     <tr>
                         <th class="px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider">Siswa</th>
                         <th class="px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider hidden sm:table-cell">Tanggal</th>
                         <th class="px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider">Waktu</th>
                         <th class="px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider">Status</th>
+                        <th class="px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider hidden md:table-cell">Lokasi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-100">
@@ -109,11 +110,14 @@
                                         {{ $attendance->status }}
                                     </span>
                                 </td>
+                                <td class="px-2 sm:px-4 py-2 sm:py-4 whitespace-nowrap hidden md:table-cell">
+                                    <div class="text-xs sm:text-sm text-gray-900 truncate max-w-[150px]">{{ $attendance->location ?? '-' }}</div>
+                                </td>
                             </tr>
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="4" class="px-4 py-8 text-center text-gray-500">
+                            <td colspan="5" class="px-4 py-8 text-center text-gray-500">
                                 Belum ada data presensi
                             </td>
                         </tr>

@@ -173,6 +173,12 @@ Setelah menjalankan `php artisan migrate:fresh --seed`, kamu bisa login dengan:
 
 ---
 
+## Panduan Deploy ke Production
+
+Untuk deploy ke Vercel (Laravel) + Render (Python Backend), lihat panduan lengkap di [DEPLOY.md](./DEPLOY.md)
+
+---
+
 ## Catatan Penting
 
 - Pastikan **kedua server berjalan** (Laravel di port 8000 & Python Flask di port 5000)

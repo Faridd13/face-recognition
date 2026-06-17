@@ -78,8 +78,8 @@
                     <tr>
                         <th class="px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-semibold text-orange-800">No</th>
                         <th class="px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-semibold text-orange-800">Threshold</th>
-                        <th class="px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-semibold text-orange-800">Total Tests</th>
-                        <th class="px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-semibold text-orange-800">Correct</th>
+                        <th class="px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-semibold text-orange-800">Avg Confidence</th>
+                        <th class="px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-semibold text-orange-800">Avg Latency</th>
                         <th class="px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-semibold text-orange-800">Accuracy</th>
                         <th class="px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-semibold text-orange-800">Precision</th>
                         <th class="px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-semibold text-orange-800">Recall</th>
@@ -92,8 +92,8 @@
                         <tr class="hover:bg-gray-50">
                             <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900">{{ $index + 1 }}</td>
                             <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900 font-semibold">{{ $metric['threshold'] }}%</td>
-                            <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900">{{ $metric['total_tests'] }}</td>
-                            <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900">{{ $metric['correct_predictions'] }}</td>
+                            <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900">{{ $metric['avg_confidence'] }}%</td>
+                            <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900">{{ $metric['avg_latency'] }}ms</td>
                             <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900">{{ $metric['accuracy'] }}%</td>
                             <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900">{{ $metric['precision'] }}%</td>
                             <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900">{{ $metric['recall'] }}%</td>
@@ -215,8 +215,8 @@ function updateThresholdTable() {
         row.innerHTML = `
             <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900">${index + 1}</td>
             <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900 font-semibold">${metric.threshold}%</td>
-            <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900">${metric.total_tests}</td>
-            <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900">${metric.correct_predictions}</td>
+            <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900">${metric.avg_confidence}%</td>
+            <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900">${metric.avg_latency}ms</td>
             <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900">${metric.accuracy}%</td>
             <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900">${metric.precision}%</td>
             <td class="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900">${metric.recall}%</td>

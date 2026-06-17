@@ -74,10 +74,7 @@ class ExperimentController extends Controller
             'experiment_type' => 'required|string|in:training,testing',
         ]);
 
-        // Kirim ke Python API untuk disimpan juga
-        $response = Http::post($this->pythonApiUrl . '/api/experiment/log', $request->all());
-
-        // Simpan ke database Laravel juga
+        // Simpan ke database Laravel saja (tidak perlu double save ke Python API)
         ExperimentLog::create($request->all());
 
         return response()->json(['status' => 'success']);
@@ -357,9 +354,14 @@ class ExperimentController extends Controller
         $falseAccept = 0;
         $falseReject = 0;
         $truePositive = 0;
+        $totalConfidence = 0;
+        $totalLatency = 0;
 
         foreach ($testLogs as $log) {
             $totalTests++;
+            $totalConfidence += $log->confidence;
+            $totalLatency += $log->latency;
+            
             // Tentukan apakah terdeteksi berdasarkan threshold
             $detected = $log->confidence >= $threshold;
             
@@ -380,11 +382,15 @@ class ExperimentController extends Controller
         $recall = ($truePositive + $falseNegative) > 0 ? ($truePositive / ($truePositive + $falseNegative) * 100) : 0;
         $far = $totalTests > 0 ? ($falseAccept / $totalTests * 100) : 0;
         $frr = $totalTests > 0 ? ($falseReject / $totalTests * 100) : 0;
+        $avgConfidence = $totalTests > 0 ? round($totalConfidence / $totalTests, 2) : 0;
+        $avgLatency = $totalTests > 0 ? round($totalLatency / $totalTests, 2) : 0;
 
         return [
             'threshold' => $threshold,
             'total_tests' => $totalTests,
             'correct_predictions' => $correctPredictions,
+            'avg_confidence' => $avgConfidence,
+            'avg_latency' => $avgLatency,
             'accuracy' => round($accuracy, 2),
             'precision' => round($precision, 2),
             'recall' => round($recall, 2),

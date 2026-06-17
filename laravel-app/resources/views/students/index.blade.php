@@ -18,30 +18,30 @@
     
     <div class="bg-white rounded-xl card-shadow overflow-hidden animate-slideInUp" style="animation-delay: 0.1s;">
         <div class="responsive-table-container max-h-[240px] sm:max-h-[320px] overflow-y-auto">
-            <table class="w-full min-w-[500px]">
+            <table class="w-full min-w-[500px] table-fixed">
                 <thead class="bg-orange-50 sticky top-0">
                     <tr>
-                        <th class="px-2 sm:px-4 py-2 sm:py-4 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider">NIS</th>
-                        <th class="px-2 sm:px-4 py-2 sm:py-4 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider">Nama</th>
-                        <th class="px-2 sm:px-4 py-2 sm:py-4 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider">Kelas</th>
-                        <th class="px-2 sm:px-4 py-2 sm:py-4 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider hidden sm:table-cell">Nomor WhatsApp Orang Tua</th>
-                        <th class="px-2 sm:px-4 py-2 sm:py-4 text-center text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider">Aksi</th>
+                        <th class="w-1/6 px-4 py-3 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider">NIS</th>
+                        <th class="w-1/3 px-4 py-3 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider">Nama</th>
+                        <th class="w-1/6 px-4 py-3 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider">Kelas</th>
+                        <th class="w-1/4 px-4 py-3 text-left text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider hidden sm:table-cell">Nomor WhatsApp Orang Tua</th>
+                        <th class="w-1/6 px-4 py-3 text-center text-xs sm:text-sm font-semibold text-orange-800 uppercase tracking-wider">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-100">
                     @foreach($students as $student)
                         <tr class="hover:bg-orange-50 transition-colors duration-200 animate-fadeIn" style="animation-delay: {{ $loop->index * 0.05 }}s;">
-                            <td class="px-2 sm:px-4 py-2 sm:py-4 text-xs sm:text-sm text-gray-900 font-medium">{{ $student->nis }}</td>
-                            <td class="px-2 sm:px-4 py-2 sm:py-4 text-xs sm:text-sm text-gray-900">{{ $student->name }}</td>
-                            <td class="px-2 sm:px-4 py-2 sm:py-4 text-xs sm:text-sm text-gray-900">{{ $student->class }}</td>
-                            <td class="px-2 sm:px-4 py-2 sm:py-4 text-xs sm:text-sm text-gray-600 hidden sm:table-cell">{{ $student->parent_whatsapp ?? '-' }}</td>
-                            <td class="px-2 sm:px-4 py-2 sm:py-4">
-                                <div class="flex flex-wrap gap-2 justify-center">
-                                    <a href="{{ route('students.edit', $student) }}" class="text-blue-600 hover:text-blue-800 px-2 sm:px-3 py-1 rounded-lg hover:bg-blue-50 transition-all duration-200 font-medium text-center text-xs sm:text-sm">Edit</a>
+                            <td class="w-1/6 px-4 py-3 text-xs sm:text-sm text-gray-900 font-medium truncate">{{ $student->nis }}</td>
+                            <td class="w-1/3 px-4 py-3 text-xs sm:text-sm text-gray-900 truncate">{{ $student->name }}</td>
+                            <td class="w-1/6 px-4 py-3 text-xs sm:text-sm text-gray-900 truncate">{{ $student->class }}</td>
+                            <td class="w-1/4 px-4 py-3 text-xs sm:text-sm text-gray-600 hidden sm:table-cell truncate">{{ $student->parent_whatsapp ?? '-' }}</td>
+                            <td class="w-1/6 px-4 py-3">
+                                <div class="flex flex-wrap gap-1 justify-center">
+                                    <a href="{{ route('students.edit', $student) }}" class="text-blue-600 hover:text-blue-800 px-2.5 py-1 rounded-md hover:bg-blue-50 transition-all duration-200 font-medium text-center text-xs sm:text-sm">Edit</a>
                                     <form action="{{ route('students.destroy', $student) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus?')" class="inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="text-red-600 hover:text-red-800 px-2 sm:px-3 py-1 rounded-lg hover:bg-red-50 transition-all duration-200 font-medium text-center text-xs sm:text-sm">Hapus</button>
+                                        <button type="submit" class="text-red-600 hover:text-red-800 px-2.5 py-1 rounded-md hover:bg-red-50 transition-all duration-200 font-medium text-center text-xs sm:text-sm">Hapus</button>
                                     </form>
                                 </div>
                             </td>
