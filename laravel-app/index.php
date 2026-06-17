@@ -5,6 +5,18 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
+// Clear any cached config to avoid dev dependencies in production
+$cacheFiles = [
+    __DIR__.'/bootstrap/cache/config.php',
+    __DIR__.'/bootstrap/cache/packages.php',
+    __DIR__.'/bootstrap/cache/services.php',
+];
+foreach ($cacheFiles as $file) {
+    if (file_exists($file)) {
+        @unlink($file);
+    }
+}
+
 /*
 |--------------------------------------------------------------------------
 | Check If The Application Is Under Maintenance
