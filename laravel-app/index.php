@@ -5,15 +5,17 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
-// Clear any cached config to avoid dev dependencies in production
-$cacheFiles = [
-    __DIR__.'/bootstrap/cache/config.php',
-    __DIR__.'/bootstrap/cache/packages.php',
-    __DIR__.'/bootstrap/cache/services.php',
-];
-foreach ($cacheFiles as $file) {
-    if (file_exists($file)) {
-        @unlink($file);
+// Clear config cache only on Vercel (production)
+if ((getenv('APP_ENV') === 'production' || (isset($_ENV['APP_ENV']) && $_ENV['APP_ENV'] === 'production'))) {
+    $cacheFiles = [
+        __DIR__.'/bootstrap/cache/config.php',
+        __DIR__.'/bootstrap/cache/packages.php',
+        __DIR__.'/bootstrap/cache/services.php',
+    ];
+    foreach ($cacheFiles as $file) {
+        if (file_exists($file)) {
+            @unlink($file);
+        }
     }
 }
 
